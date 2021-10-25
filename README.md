@@ -11,19 +11,19 @@ Det jag använt tillsammans med Gulp är följande:
 - CleanCSS
 Komprimerar CSS filer
 
-- Concat
+- Concat /
 Slår ihop filer
 
-- Livereload
+- Livereload /
 Läser om sidan vid sparning av ändringar i koden
 
-- Terser
+- Terser /
 Komprimerar JS filer
 
-- HTMLmin
+- HTMLmin /
 Komprimerar HTML filer
 
-- sourceMaps
+- sourceMaps /
 Kartlägger vart den ursprungliga koden ligger i den komprimerade filerna
 
 ### Systemet som skapats, hur man startar upp det och vilka tasks som ingår
@@ -33,19 +33,24 @@ För att köra detta krävs det att du har följande installerat:
 - gulp
 - Node.js
 
+En kontroll kan göras för att se om dessa är installerade genom att skriva följande:
+`npm -v`
+`gulp -v`
+`node -v`
+
 För att det sedan skall fungera skriver du `npm install` och när det är färdigt räcker det med att skriva `gulp` så är systemet igång.
 När detta gjorts så visas dina ändringar genom live servern samt komprimeras de och läggs ihop där det behövs, detta görs genom följande tasks:
 
-- htmlTask
+- htmlTask /
 Denna task komprimerar HTML-filerna
 
-- jsTask
+- jsTask /
 Denna task komprimerar samt lägger ihop JavaScript-filerna
 
-- cssTask
+- cssTask /
 Denna task komprimerar samt lägger ihop CSS-filerna
 
-- watchTask
+- watchTask /
 watchTask har en watch på filerna och kör igenom de ovan vid ändringar.
 
-Dessa tillsammans gör systemet funktionellt i sin helhet.
+Dessa tillsammans gör systemet vad det är i sin helhet.
