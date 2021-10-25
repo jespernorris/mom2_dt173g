@@ -29,14 +29,14 @@ Kartlägger vart den ursprungliga koden ligger i den komprimerade filerna
 ### Systemet som skapats, hur man startar upp det och vilka tasks som ingår
 
 För att köra detta krävs det att du har följande installerat:
-- NPM
-- gulp
-- Node.js
+1 NPM
+2 gulp
+3 Node.js
 
 En kontroll kan göras för att se om dessa är installerade genom att skriva följande:
-`npm -v`
-`gulp -v`
-`node -v`
+- `npm -v`
+- `gulp -v`
+- `node -v`
 
 För att det sedan skall fungera skriver du `npm install` och när det är färdigt räcker det med att skriva `gulp` så är systemet igång.
 När detta gjorts så visas dina ändringar genom live servern samt komprimeras de och läggs ihop där det behövs, detta görs genom följande tasks:
