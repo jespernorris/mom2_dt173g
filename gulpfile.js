@@ -1,9 +1,10 @@
 const {src, dest, watch, series, parallel} = require('gulp');
-const concat = require('gulp-concat');
-const terser = require('gulp-terser').default;
-const cleanCSS = require('gulp-clean-css');
-const htmlmin = require('gulp-htmlmin');
-const livereload = require('gulp-livereload');
+const concat = require('gulp-concat'); // Slå ihop filer
+const terser = require('gulp-terser').default; // Komprimera JS
+const cleanCSS = require('gulp-clean-css'); // Komprimera CSS
+const htmlmin = require('gulp-htmlmin'); // Komprimera HTML
+const livereload = require('gulp-livereload'); // Läser in ändringar vid sparning
+const sourcemaps = require('gulp-sourcemaps'); // Kartlägger kod
 
 // Sökvägar
 const files = {
@@ -16,6 +17,7 @@ const files = {
 function htmlTask() {
     return src(files.htmlPath)
     .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(sourcemaps.write('../maps'))
     .pipe(dest('pub'))
     .pipe(livereload());
 }
@@ -25,6 +27,7 @@ function jsTask() {
     return src(files.jsPath)
     .pipe(concat('main.js'))
     .pipe(terser())
+    .pipe(sourcemaps.write('../maps'))
     .pipe(dest('pub/js'))
     .pipe(livereload());
 }
@@ -34,6 +37,7 @@ function cssTask() {
     return src(files.cssPath)
     .pipe(concat('main.css'))
     .pipe(cleanCSS())
+    .pipe(sourcemaps.write('../maps'))
     .pipe(dest('pub/style'))
     .pipe(livereload());
 }
